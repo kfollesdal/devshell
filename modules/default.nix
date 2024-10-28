@@ -12,7 +12,7 @@ let
   };
 
   module = lib.evalModules {
-    modules = [ configuration ] ++ devenvModules;
+    modules = lib.flatten [ configuration ] ++ devenvModules;
     specialArgs = {
       modulesPath = builtins.toString ./.;
       extraModulesPath = builtins.toString ../extra;
